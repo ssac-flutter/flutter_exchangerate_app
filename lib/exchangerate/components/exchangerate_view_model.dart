@@ -26,4 +26,15 @@ class ExchangerateViewModel extends ChangeNotifier {
     shownList.remove(query);
     hiddenList.add(query);
   }
+
+  String findCountryName(String query) {
+    String foundCountry = '';
+    nations
+        .where((element) => element.currencyCode == query)
+        .toList()
+        .forEach((element) {
+      foundCountry = element.country;
+    });
+    return foundCountry;
+  }
 }

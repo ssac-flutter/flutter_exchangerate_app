@@ -42,43 +42,41 @@ class _MainScreenState extends State<MainScreen> {
               ),
             ),
           ),
-          Expanded(
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                Flexible(
-                  flex: 2,
-                  fit: FlexFit.tight,
-                  child: Container(
-                    alignment: Alignment.centerLeft,
-                    height: 40,
-                    color: Colors.blue,
-                    child: const Text("국가명"),
-                  ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Flexible(
+                flex: 2,
+                fit: FlexFit.tight,
+                child: Container(
+                  alignment: Alignment.centerLeft,
+                  height: 40,
+                  color: Colors.blue,
+                  child: const Text("국가명"),
                 ),
-                Flexible(
-                  flex: 1,
-                  fit: FlexFit.tight,
-                  child: Container(
-                    alignment: Alignment.center,
-                    height: 40,
-                    color: Colors.red,
-                    child: const Text("통화"),
-                  ),
+              ),
+              Flexible(
+                flex: 1,
+                fit: FlexFit.tight,
+                child: Container(
+                  alignment: Alignment.center,
+                  height: 40,
+                  color: Colors.red,
+                  child: const Text("통화"),
                 ),
-                Flexible(
-                  flex: 1,
-                  fit: FlexFit.tight,
-                  child: Container(
-                    alignment: Alignment.center,
-                    height: 40,
-                    color: Colors.amber,
-                    child: const Text("미화 환산율"),
-                  ),
+              ),
+              Flexible(
+                flex: 1,
+                fit: FlexFit.tight,
+                child: Container(
+                  alignment: Alignment.center,
+                  height: 40,
+                  color: Colors.amber,
+                  child: const Text("미화 환산율"),
                 ),
-              ],
-            ),
+              ),
+            ],
           ),
           Expanded(
             child: ListView.builder(
@@ -93,15 +91,25 @@ class _MainScreenState extends State<MainScreen> {
                     Flexible(
                       flex: 2,
                       fit: FlexFit.tight,
-                      child: Row(
-                        children: [
-                          Container(
-                            alignment: Alignment.center,
-                            height: 40,
-                            color: Colors.blue,
-                            child: Text(viewModel.shownList[index]),
-                          ),
-                        ],
+                      child: Container(
+                        alignment: Alignment.center,
+                        color: Colors.blue,
+                        height: 40,
+                        child: Row(
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            Image.network(
+                              'https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/Flag_of_South_Korea.svg/510px-Flag_of_South_Korea.svg.png',
+                              height: 30,
+                              fit: BoxFit.cover,
+                            ),
+                            const SizedBox(
+                              width: 8,
+                            ),
+                            Text(viewModel
+                                .findCountryName(viewModel.shownList[index])),
+                          ],
+                        ),
                       ),
                     ),
                     //통화코드
