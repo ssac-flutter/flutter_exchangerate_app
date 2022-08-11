@@ -1,5 +1,5 @@
-class ConversionRates {
-  final Map<String, dynamic> conversionRates;
+class Nation {
+  final String nation;
 
-  ConversionRates({required this.conversionRates});
+  Nation(this.nation);
 }
