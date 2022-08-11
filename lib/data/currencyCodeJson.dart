@@ -1,4 +1,5 @@
-[{"Currency Code":"AED","Currency Name":"UAE Dirham","Country":"United Arab Emirates"},
+String data =
+    '''[{"Currency Code":"AED","Currency Name":"UAE Dirham","Country":"United Arab Emirates"},
 {"Currency Code":"AFN","Currency Name":"Afghan Afghani","Country":"Afghanistan"},
 {"Currency Code":"ALL","Currency Name":"Albanian Lek","Country":"Albania"},
 {"Currency Code":"AMD","Currency Name":"Armenian Dram","Country":"Armenia"},
@@ -158,4 +159,4 @@
 {"Currency Code":"YER","Currency Name":"Yemeni Rial","Country":"Yemen"},
 {"Currency Code":"ZAR","Currency Name":"South African Rand","Country":"South Africa"},
 {"Currency Code":"ZMW","Currency Name":"Zambian Kwacha","Country":"Zambia"},
-{"Currency Code":"ZWL","Currency Name":"Zimbabwean Dollar","Country":"Zimbabwe"}]
+{"Currency Code":"ZWL","Currency Name":"Zimbabwean Dollar","Country":"Zimbabwe"}]''';

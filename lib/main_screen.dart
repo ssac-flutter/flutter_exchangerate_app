@@ -54,7 +54,7 @@ class _MainScreenState extends State<MainScreen> {
                     alignment: Alignment.centerLeft,
                     height: 40,
                     color: Colors.blue,
-                    child: const Text("    국가명"),
+                    child: const Text("국가명"),
                   ),
                 ),
                 Flexible(
@@ -89,16 +89,22 @@ class _MainScreenState extends State<MainScreen> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
+                    //국가명
                     Flexible(
                       flex: 2,
                       fit: FlexFit.tight,
-                      child: Container(
-                        alignment: Alignment.centerLeft,
-                        height: 40,
-                        color: Colors.blue,
-                        child: Text(viewModel.shownList[index]),
+                      child: Row(
+                        children: [
+                          Container(
+                            alignment: Alignment.center,
+                            height: 40,
+                            color: Colors.blue,
+                            child: Text(viewModel.shownList[index]),
+                          ),
+                        ],
                       ),
                     ),
+                    //통화코드
                     Flexible(
                       flex: 1,
                       fit: FlexFit.tight,
@@ -109,6 +115,7 @@ class _MainScreenState extends State<MainScreen> {
                         child: Text(viewModel.shownList[index]),
                       ),
                     ),
+                    //미화 환산율
                     Flexible(
                       flex: 1,
                       fit: FlexFit.tight,

@@ -4,17 +4,16 @@ import 'package:flutter_exchangerate_app/model/nation.dart';
 import '../api/exchangerate_api.dart';
 
 class ExchangerateViewModel extends ChangeNotifier {
-  final _exchangerateApi = ExchangerateApi();
+  final exchangerateApi = ExchangerateApi();
   Map<String, dynamic> conversionRates = {};
   List<String> shownList = [];
   List<String> hiddenList = [];
-  List<National> nations = [];
+  List<Country> nations = [];
 
   Future fetchConversionRates(String query) async {
-    conversionRates = await _exchangerateApi.getConversionRates(query);
+    conversionRates = await exchangerateApi.getConversionRates(query);
     shownList = conversionRates.keys.toList();
-    nations = _exchangerateApi.getNationalName();
-
+    nations = await exchangerateApi.getNationalName();
     notifyListeners();
   }
 
