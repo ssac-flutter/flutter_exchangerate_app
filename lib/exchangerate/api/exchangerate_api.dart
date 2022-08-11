@@ -13,7 +13,7 @@ class ExchangerateApi {
     String jsonString = response.body;
 
     Map<String, dynamic> json = jsonDecode(jsonString);
-    if (json.isEmpty) {
+    if (json['conversion_rates'] == null) {
       return {};
     }
     Map<String, dynamic> conversionRates = json['conversion_rates'];

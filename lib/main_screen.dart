@@ -99,15 +99,23 @@ class _MainScreenState extends State<MainScreen> {
                           crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
                             Image.network(
-                              'https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/Flag_of_South_Korea.svg/510px-Flag_of_South_Korea.svg.png',
-                              height: 30,
+                              viewModel
+                                  .findimageUrl(viewModel.shownList[index]),
+                              width: 30,
+                              height: 20,
                               fit: BoxFit.cover,
                             ),
                             const SizedBox(
                               width: 8,
                             ),
-                            Text(viewModel
-                                .findCountryName(viewModel.shownList[index])),
+                            Expanded(
+                              child: Text(
+                                viewModel.findCountryName(
+                                    viewModel.shownList[index]),
+                                overflow: TextOverflow.fade,
+                                softWrap: true,
+                              ),
+                            ),
                           ],
                         ),
                       ),

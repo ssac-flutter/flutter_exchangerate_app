@@ -37,4 +37,15 @@ class ExchangerateViewModel extends ChangeNotifier {
     });
     return foundCountry;
   }
+
+  String findimageUrl(String query) {
+    String imageUrl = '';
+    nations
+        .where((element) => element.currencyCode == query)
+        .toList()
+        .forEach((element) {
+      imageUrl = element.imageUrl;
+    });
+    return imageUrl;
+  }
 }
