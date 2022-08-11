@@ -43,28 +43,83 @@ class _MainScreenState extends State<MainScreen> {
             ),
           ),
           Expanded(
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Flexible(
+                  flex: 2,
+                  fit: FlexFit.tight,
+                  child: Container(
+                    alignment: Alignment.centerLeft,
+                    height: 40,
+                    color: Colors.blue,
+                    child: const Text("    국가명"),
+                  ),
+                ),
+                Flexible(
+                  flex: 1,
+                  fit: FlexFit.tight,
+                  child: Container(
+                    alignment: Alignment.center,
+                    height: 40,
+                    color: Colors.red,
+                    child: const Text("통화"),
+                  ),
+                ),
+                Flexible(
+                  flex: 1,
+                  fit: FlexFit.tight,
+                  child: Container(
+                    alignment: Alignment.center,
+                    height: 40,
+                    color: Colors.amber,
+                    child: const Text("미화 환산율"),
+                  ),
+                ),
+              ],
+            ),
+          ),
+          Expanded(
             child: ListView.builder(
               scrollDirection: Axis.vertical,
               itemCount: viewModel.shownList.length,
               itemBuilder: (BuildContext context, int index) {
                 return Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    Container(
-                      margin: EdgeInsets.all(6),
-                      decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(3),
-                          border: Border.all(color: Colors.grey.shade400)),
-                      child: Text(viewModel.shownList[index]),
+                    Flexible(
+                      flex: 2,
+                      fit: FlexFit.tight,
+                      child: Container(
+                        alignment: Alignment.centerLeft,
+                        height: 40,
+                        color: Colors.blue,
+                        child: Text(viewModel.shownList[index]),
+                      ),
                     ),
-                    Container(
-                      margin: EdgeInsets.all(6),
-                      decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(3),
-                          border: Border.all(color: Colors.grey.shade400)),
-                      child: Text(viewModel
-                          .conversionRates[viewModel.shownList[index]]
-                          .toString()),
+                    Flexible(
+                      flex: 1,
+                      fit: FlexFit.tight,
+                      child: Container(
+                        alignment: Alignment.center,
+                        height: 40,
+                        color: Colors.red,
+                        child: Text(viewModel.shownList[index]),
+                      ),
+                    ),
+                    Flexible(
+                      flex: 1,
+                      fit: FlexFit.tight,
+                      child: Container(
+                        alignment: Alignment.center,
+                        height: 40,
+                        color: Colors.amber,
+                        child: Text(viewModel
+                            .conversionRates[viewModel.shownList[index]]
+                            .toString()),
+                      ),
                     ),
                   ],
                 );

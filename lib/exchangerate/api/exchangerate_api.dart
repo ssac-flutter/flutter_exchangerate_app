@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'package:flutter_exchangerate_app/model/nation.dart';
 import 'package:http/http.dart' as http;
 
 class ExchangerateApi {
@@ -15,5 +16,12 @@ class ExchangerateApi {
     }
     Map<String, dynamic> conversionRates = json['conversion_rates'];
     return conversionRates;
+  }
+
+  List<National> getNationalName() {
+    Map<String, dynamic> json = jsonDecode('jsonfiles/currencyCode.json');
+
+    Iterable nationsList = json[''];
+    return nationsList.map((e) => National.fromJson(e)).toList();
   }
 }
