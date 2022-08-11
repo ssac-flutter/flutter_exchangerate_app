@@ -73,7 +73,7 @@ class _MainScreenState extends State<MainScreen> {
                   alignment: Alignment.center,
                   height: 40,
                   color: Colors.amber,
-                  child: const Text("미화 환산율"),
+                  child: const Text("환산율"),
                 ),
               ),
             ],
