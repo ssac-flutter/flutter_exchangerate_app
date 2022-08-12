@@ -35,7 +35,7 @@ class _MainScreenState extends State<MainScreen> {
                 onTap: () {
                   if (_controller.text.isNotEmpty) {
                     viewModel.fetchConversionRates(_controller.text);
-                    // print(viewModel.conversionRates);
+                    print('clicked ${_controller.text}');
                   }
                 },
                 child: const Icon(Icons.search),
@@ -93,7 +93,7 @@ class _MainScreenState extends State<MainScreen> {
                       fit: FlexFit.tight,
                       child: Container(
                         alignment: Alignment.center,
-                        color: Colors.blue,
+                        // color: Colors.blue,
                         height: 40,
                         child: Row(
                           crossAxisAlignment: CrossAxisAlignment.center,
@@ -127,7 +127,7 @@ class _MainScreenState extends State<MainScreen> {
                       child: Container(
                         alignment: Alignment.center,
                         height: 40,
-                        color: Colors.red,
+                        // color: Colors.red,
                         child: Text(viewModel.shownList[index]),
                       ),
                     ),
@@ -138,7 +138,7 @@ class _MainScreenState extends State<MainScreen> {
                       child: Container(
                         alignment: Alignment.center,
                         height: 40,
-                        color: Colors.amber,
+                        // color: Colors.amber,
                         child: Text(viewModel
                             .conversionRates[viewModel.shownList[index]]
                             .toString()),

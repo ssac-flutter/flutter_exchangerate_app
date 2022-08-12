@@ -7,7 +7,8 @@ import '../../data/currencyCodeJson.dart';
 class ExchangerateApi {
   Future<Map<String, dynamic>> getConversionRates(String query) async {
     Uri url = Uri.parse(
-        'https://v6.exchangerate-api.com/v6/72f97e0215e12ca9944fef45/latest/$query');
+        'https://v6.exchangerate-api.com/v6/95fc577304bbec77d7aa457c/latest/$query');
+    // 'https://v6.exchangerate-api.com/v6/72f97e0215e12ca9944fef45/latest/$query');
 
     http.Response response = await http.get(url);
     String jsonString = response.body;
