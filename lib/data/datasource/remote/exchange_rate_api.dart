@@ -1,8 +1,6 @@
 import 'dart:convert';
-import 'package:flutter_exchangerate_app/model/nation.dart';
-import 'package:http/http.dart' as http;
 
-import '../../data/currency_code_json.dart';
+import 'package:http/http.dart' as http;
 
 class ExchangeRateApi {
   Future<Map<String, dynamic>> getConversionRates(String query) async {
@@ -21,11 +19,4 @@ class ExchangeRateApi {
     return conversionRates;
   }
 
-  Future<List<Country>> getNationalName() async {
-    await Future.delayed(const Duration(seconds: 1));
-    String jsonString = data; //currencyCodeJson.dart
-
-    Iterable json = jsonDecode(jsonString);
-    return json.map((e) => Country.fromJson(e)).toList();
-  }
 }

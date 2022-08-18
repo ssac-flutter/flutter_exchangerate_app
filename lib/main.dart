@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_exchangerate_app/main_screen.dart';
+import 'package:flutter_exchangerate_app/ui/main_screen.dart';
 import 'package:provider/provider.dart';
 
-import 'exchangerate/components/exchangerate_view_model.dart';
+import 'ui/exchangerate_view_model.dart';
 
 void main() {
   runApp(const MyApp());
@@ -19,7 +19,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       home: ChangeNotifierProvider(
-        create: (_) => ExchangerateViewModel(),
+        create: (_) => ExchangeRateViewModel(),
         child: const MainScreen(),
       ),
     );

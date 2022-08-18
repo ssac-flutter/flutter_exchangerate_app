@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_exchangerate_app/data/model/exchange_rate.dart';
 import 'package:provider/provider.dart';
 
-import 'exchangerate/components/exchangerate_view_model.dart';
+import 'exchangerate_view_model.dart';
 
 class MainScreen extends StatefulWidget {
   const MainScreen({Key? key}) : super(key: key);
@@ -21,7 +22,7 @@ class _MainScreenState extends State<MainScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final viewModel = context.watch<ExchangerateViewModel>();
+    final viewModel = context.watch<ExchangeRateViewModel>();
     return Scaffold(
       appBar: AppBar(
         title: const Text("환율조회"),
@@ -34,7 +35,7 @@ class _MainScreenState extends State<MainScreen> {
               suffixIcon: GestureDetector(
                 onTap: () {
                   if (_controller.text.isNotEmpty) {
-                    viewModel.fetchConversionRates(_controller.text);
+                    viewModel.onSearch(_controller.text);
                     print('clicked ${_controller.text}');
                   }
                 },
@@ -81,8 +82,10 @@ class _MainScreenState extends State<MainScreen> {
           Expanded(
             child: ListView.builder(
               scrollDirection: Axis.vertical,
-              itemCount: viewModel.shownList.length,
+              itemCount: viewModel.exchangeRates.length,
               itemBuilder: (BuildContext context, int index) {
+                final item = viewModel.exchangeRates[index];
+
                 return Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.center,
@@ -99,8 +102,7 @@ class _MainScreenState extends State<MainScreen> {
                           crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
                             Image.network(
-                              viewModel
-                                  .findimageUrl(viewModel.shownList[index]),
+                              item.imageUrl,
                               width: 30,
                               height: 20,
                               fit: BoxFit.cover,
@@ -110,8 +112,7 @@ class _MainScreenState extends State<MainScreen> {
                             ),
                             Expanded(
                               child: Text(
-                                viewModel.findCountryName(
-                                    viewModel.shownList[index]),
+                                item.countryName,
                                 overflow: TextOverflow.fade,
                                 softWrap: true,
                               ),
@@ -128,7 +129,7 @@ class _MainScreenState extends State<MainScreen> {
                         alignment: Alignment.center,
                         height: 40,
                         // color: Colors.red,
-                        child: Text(viewModel.shownList[index]),
+                        child: Text(item.currency),
                       ),
                     ),
                     //미화 환산율
@@ -139,9 +140,7 @@ class _MainScreenState extends State<MainScreen> {
                         alignment: Alignment.center,
                         height: 40,
                         // color: Colors.amber,
-                        child: Text(viewModel
-                            .conversionRates[viewModel.shownList[index]]
-                            .toString()),
+                        child: Text(item.conversionRate.toString()),
                       ),
                     ),
                   ],
