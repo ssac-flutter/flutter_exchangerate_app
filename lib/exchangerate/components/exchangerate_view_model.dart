@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_exchangerate_app/model/nation.dart';
 
-import '../api/exchangerate_api.dart';
+import '../api/exchange_rate_api.dart';
 
 class ExchangerateViewModel extends ChangeNotifier {
-  final exchangerateApi = ExchangerateApi();
+  final exchangerateApi = ExchangeRateApi();
   Map<String, dynamic> conversionRates = {};
   List<String> shownList = [];
   List<String> hiddenList = [];

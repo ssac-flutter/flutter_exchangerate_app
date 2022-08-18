@@ -2,9 +2,9 @@ import 'dart:convert';
 import 'package:flutter_exchangerate_app/model/nation.dart';
 import 'package:http/http.dart' as http;
 
-import '../../data/currencyCodeJson.dart';
+import '../../data/currency_code_json.dart';
 
-class ExchangerateApi {
+class ExchangeRateApi {
   Future<Map<String, dynamic>> getConversionRates(String query) async {
     Uri url = Uri.parse(
         'https://v6.exchangerate-api.com/v6/95fc577304bbec77d7aa457c/latest/$query');
